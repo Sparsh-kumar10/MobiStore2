@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <style>
+        .product-item {
+            border: 2px solid black;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        .grid {
+            display: grid;
+            width: 50%;
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+        .card .card__image{
+            width: 100%;
+            height: 50%;
+        }  
+    </style>
+</head>
+
+<body>
+    <input type="text" id="search-box" onkeyup="sendData(this)">
+    <section id="searchResults">
+        
+    </section>
+
+
+    <script>
+
+        function sendData(e) {
+            console.log('click');
+            fetch('http://localhost:2000/search', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ payload: e.value })
+            }).then(res => {
+                return res.json();
+            }).then(data => {
+                console.log(data.payload)
+                let product="";
+                data.payload.map((values)=>{
+                    product+=`
+                    <article class="card product-item">
+                        <div class="card__image">
+                            <img src="${values.imageurl}" alt="" class="prod__img">
+                        </div>
+                        <div class="info">
+                            <header class="card__header">
+                                <h1 class="product__title">${values.name}</h1>
+                            </header>
+                            <div class="card__content">
+                                <h2 class="product__price">${values.price}</h2>
+                                <p class="product__description">${values.description}</p>
+                            </div>
+                        </div>
+                    </article>
+                    `
+                })
+                document.getElementById('searchResults').innerHTML=product
+            })
+        }
+    </script>
+</body>
+
+</html>

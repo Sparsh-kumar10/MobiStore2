@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/home.css">
+    <title>MobiStore</title>
+    <style>
+        div {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="first_nav">
+            <div class="location">
+                <!-- <h1 class="status"></h1> -->
+
+                <a href="#">
+                    <div><i class="fa-solid   fa-location-dot"></i>Select Location</div>
+                </a>
+                <button class="find-state status fa solid">location</button>
+                <!--<select class="current_location" name="" id="">
+                    <option value="" style="--clr:#f6d001">New Delhi</option>
+                    <option value="" style="--clr:#edd136">Bangaluru</option>
+                    <option value="" style="--clr:#f5d332">Uttrakhand</option>
+                    <option value="" style="--clr:#edd768">Utar Pradesh</option>
+                    <option value="" style="--clr:#f0d92a">Kolkata</option>
+                    <option value="" style="--clr:#e7ca0d">Chandigarh</option>
+                    <option value="" style="--clr:#f6d000">Bihar</option>
+                </select> -->
+            </div>
+            <div class="specifications">
+                <ul>
+                    <li class="nav_of_spex_2"><a href="#">How it Works</a></li>
+                    <li class="nav_of_spex_3"><a href="/shop">List your Shop</a></li>
+                    <div class="nav_of_spex_4">
+                        <% if(isAuthenticated) { %>
+                            <form action="/admin/user/logout" method="post">
+                                <button>logged out</button>
+                            </form>
+                            <%} else{ %>
+                                <li>
+                                    <a href="/admin/user/login">
+                                        <button>login</button>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/admin/user/signup">
+                                        <button>signup</button>
+                                    </a>
+                                </li>
+                                <%}%>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+        <nav class="second_nav">
+            <div class="website_Logo">
+                <a href="/"><img width="190" src="/img/weblogo.png" alt=""></a>
+            </div>
+            <div class="search">
+                <form action="" method="" class="searchBar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" name="search" id="" placeholder="eg. iphone 14">
+                    <input type="submit" value="SEARCH">
+                </form>
+            </div>
+            <% if(isAuthenticated) { %>
+                <div class="dashboard">
+                    <a href="/admin/dashboard">dashboard</a>
+                </div>
+                <%} else { %>
+                    <div class="shop">
+                        <i class="fa-duotone fa-cart-shopping-fast"></i>
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <% } %>
+
+
+        </nav>
+    </header>
+
+
+    <div class="searchProduct">
+        <% if (prods.length> 0) { %>
+            <div class="grid">
+                <% for (let product of prods) { %>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title">
+                                <%= product.name %>
+                            </h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="<%= product.imageurl %>" alt="">
+                        </div>
+                        <div class="card__content">
+                            <h2 class="product__price">$
+                                <%= product.price %>
+                            </h2>
+                            <p class="product__description">
+                                <%= product.description %>
+                            </p>
+                        </div>
+                    </article>
+                    <% } %>
+            </div>
+            <% } else { %>
+                <h1>No Products Found!</h1>
+                <% } %>
+
+
+
+
+    </div>
+
+
+
+    <!-- footer -->
+    <footer>
+        <div class="contact_container">
+            <a href="">
+                <div class="footer_logo">
+                    <img src="/img/weblogo.png" width="190" alt="">
+                </div>
+            </a>
+            <div class="social">
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea name="" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+            <button class="submit">Submit</button>
+        </div>
+        <div class="Croma-Support">
+            <h2>Mobistore support</h2>
+            <ul>
+                <li><a href="">Help and Support</a></li>
+                <li><a href="">FAQs</a></li>
+                <li><a href="">Buying Guide</a></li>
+                <li><a href="">Return Policy</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="customer_car">
+            <h2>Customer Care</h2>
+            <div>
+                <span>Phone: 8792097283</span>
+                <span>, 9887934024</span>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>
