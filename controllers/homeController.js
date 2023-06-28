@@ -1,4 +1,3 @@
-const product = require('../models/product');
 const Product = require('../models/product')
 
 exports.homePage = (req, res, next) => {
@@ -7,7 +6,9 @@ exports.homePage = (req, res, next) => {
         search = req.query.search;
         Product.find({
             $or: [
-                { name: { $regex: '.*' + search + '.*' } }
+                { 
+                    name: { $regex: '.*' + search + '.*' ,$options: 'i'}
+                }
             ]
         }).then(result => {
             console.log(result)
@@ -25,4 +26,14 @@ exports.homePage = (req, res, next) => {
         })
     }
 
+}
+
+exports.productpage=(req,res)=>{
+    const prodId=req.params.productId;
+    Product.findById(prodId).then(product=>{
+        console.log(product)
+        res.render('shop/productPage',{
+            isAuthenticated: req.session.isLoggedIn
+        })
+    })
 }

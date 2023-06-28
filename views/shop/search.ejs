@@ -13,8 +13,54 @@
     <link rel="stylesheet" href="/css/home.css">
     <title>MobiStore</title>
     <style>
-        div {
+        main {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 5fr;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        .sortingSection {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 2px;
+
+        }
+
+        main .grid {
+            max-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+            grid-template-rows: repeat(auto-fit, minmax(10rem, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 2px;
+
+        }
+
+        main .grid .card {
+            width: 100%;
+            height: 100%;
             display: flex;
+            flex-direction: column;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: .5rem;
+        }
+
+        .card .card__image {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card__image img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+        }
+
+        .info {
+            background-color: blanchedalmond;
         }
     </style>
 </head>
@@ -92,34 +138,40 @@
 
 
     <div class="searchProduct">
-        <% if (prods.length> 0) { %>
-            <div class="grid">
-                <% for (let product of prods) { %>
-                    <article class="card product-item">
-                        <header class="card__header">
-                            <h1 class="product__title">
-                                <%= product.name %>
-                            </h1>
-                        </header>
-                        <div class="card__image">
-                            <img src="<%= product.imageurl %>" alt="">
-                        </div>
-                        <div class="card__content">
-                            <h2 class="product__price">$
-                                <%= product.price %>
-                            </h2>
-                            <p class="product__description">
-                                <%= product.description %>
-                            </p>
-                        </div>
-                    </article>
-                    <% } %>
+        <main>
+            <div class="sortingSection">
+
             </div>
-            <% } else { %>
-                <h1>No Products Found!</h1>
-                <% } %>
+            <% if (prods.length> 0) { %>
+                <div class="grid">
+                    <% for (let product of prods) { %>
+                        <a href="/productDetail/<%= product._id %>">
+                            <article class="card product-item">
+                                <div class="card__image">
+                                    <img src="<%= product.imageurl %>" alt="">
+                                </div>
+                                <header class="card__header">
+                                    <h1 class="product__title">
+                                        <%= product.name %>
+                                    </h1>
+                                </header>
+                                <div class="card__content">
+                                    <h2 class="product__price">$
+                                        <%= product.price %>
+                                    </h2>
+                                    <p class="product__description">
+                                        <%= product.description %>
+                                    </p>
+                                </div>
+                            </article>
+                        </a>
 
-
+                        <% } %>
+                </div>
+                <% } else { %>
+                    <h1>No Products Found!</h1>
+                    <% } %>
+        </main>
 
 
     </div>

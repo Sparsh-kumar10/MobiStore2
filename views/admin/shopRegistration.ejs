@@ -56,9 +56,22 @@
                     <div>
                         <input type="text" name="latitude" class="latitude">
                         <input type="text" name="logitude" class="logitude">
-                        <div class="find-state status fa solid btn" >churrent location</div>
+                        <div class="find-state status fa solid btn">churrent location</div>
                     </div>
                 </div>
+
+                <div class="item item6">
+                    <form id="distance_form">
+                        <div class="form-group">
+                            <label>Address </label>
+                            <input class="form-control" id="from_places" placeholder="Enter a location" />
+                            <input id="origin" name="origin" required="" type="hidden" />
+                        </div>
+                    </form>
+                </div>
+
+
+
                 <div class="">
                     <input type="checkbox" name="" id="">
                     <a href="">Terms and conditions</a>
@@ -70,7 +83,14 @@
         </form>
     </main>
 
+
     <script src="/js/location.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/test.js"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&language=en&key=AIzaSyC-AGJY9dKQB4hCuNsTlZPCC_z87wR3LBc&callback=initMap"
+        type="text/javascript"></script>
 </body>
 
 </html>

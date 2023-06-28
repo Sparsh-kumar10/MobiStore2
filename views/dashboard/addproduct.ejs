@@ -46,30 +46,34 @@
                     </select>
                 </form>  -->
 
-                <form action="/admin/dashboard/add-product" method="POST">
+                <form action="/admin/dashboard/<% if(editing) {%>edit-product<%} else {%>add-product<%}  %>  " method="POST">
                     <div class="items">
                         <div class="website_logo">
                             <a href="/"><img width="190" src="/img/weblogo.png" alt=""></a>
                         </div>
                         <div class="item item1">
                             <label for="">Enter mobile name</label>
-                            <input type="text" name="name" placeholder="Enter mobile name">
+                            <input type="text" name="name" placeholder="Enter mobile name" value="<% if(editing) { %> <%=product.name%> <% } %>  ">
                         </div>
                         <div class="item item2">
                             <label for="">Enter price</label>
-                            <input type="text" name="price" placeholder="price">
+                            <input type="number" name="price" placeholder="price" value="<% if(editing) { %> <%=product.price%> <% } %>  ">
                         </div>
                         <div class="item item3">
                             <label for="">Image Url</label>
-                            <input type="text" name="imageurl" id="" placeholder="Image Url">
+                            <input type="text" name="imageurl" id="" placeholder="Image Url" value="<% if(editing) { %> <%=product.imageurl%> <% } %>  ">
                         </div>
                         <div class="item item4">
                             <label for="">Description</label>
-                            <input type="text" name="description" placeholder="Description">
+                            <input type="text" name="description" placeholder="Description"value="<% if(editing) { %> <%=product.description%> <% } %>  ">
                         </div>
                         <div class="button">
-                            <input type="submit" value="Add product" class="btn">
+                            <input type="submit" value="<% if(editing) { %> update product <% } else { %>  Add product <%}%>" class="btn">
                         </div>
+                        <% if(editing) { %>
+                            <input type="hidden" value="<%= product.id %> " name="productId">
+                            <% } %>
+
                     </div>
                 </form>
 

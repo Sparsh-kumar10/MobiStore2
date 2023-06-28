@@ -9,11 +9,17 @@ router.post('/add-product',dashboardController.postAddproduct)
 
 router.get('/all-product',dashboardController.allproduct)
 
+router.get('/edit-product/:productId',dashboardController.getEditProduct)
+
+router.post('/edit-product',dashboardController.postEditProduct)
+
+router.post('/delete-product',dashboardController.deleteProduct)
+
 router.get('/orders',dashboardController.orders)
 
 router.get('/account-setting',dashboardController.accountsetting)
 
-router.post('/search',dashboardController.getSearch)
+// router.post('/search',dashboardController.getSearch)
 
 
 

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/home.css">
+  <style>
+    main {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: rgb(249, 249, 249);
+      margin-top: 2em;
+    }
+
+    .product-detaile {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .single-image {
+      max-width: 100%;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2em;
+      margin: 1em 0em 1em 1em;
+      padding: 2em;
+    }
+
+    .big {
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .single-image .big-img {
+      max-width: 100%;
+      padding-top: 1em;
+    }
+
+    .other-image {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+      padding: .5em;
+      width: 60%;
+      height: 60%;
+    }
+
+    .small {
+      width: 30%;
+      height: 30%;
+      object-fit: contain;
+    }
+
+    .small img {
+      width: 100%;
+      padding: .2em;
+      border: 1px solid rgb(173, 169, 169);
+    }
+
+    .info {
+      max-width: 100%;
+      /* border: 2px solid black; */
+      background-color: white;
+      margin: 1em 1em 1em .2em;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .info h2 {
+      font-size: 30px;
+      margin-top: 1em;
+    }
+
+    .info i {
+      color: yellow;
+    }
+
+    .info span {
+      display: flex;
+      gap: .3em;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .info span p {
+      font-size: 25px;
+    }
+
+    .info .btn {
+      width: 25em;
+    }
+
+    .info .btn button {
+      width: 12em;
+      padding: 5px;
+      border-radius: 2em;
+      border: none;
+      background-color: #041f47;
+      color: white;
+      font-size: 16px;
+    }
+
+    .btn button:hover {
+      cursor: pointer;
+      border: 1px solid greenyellow;
+      background-color: #85FFBD;
+      color: black;
+    }
+
+    .specs {
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .specs h3 {
+      font-size: 22px;
+    }
+
+    .specs ul {
+      padding-left: 1em;
+    }
+
+    .specs ul li {
+      margin-top: .5em;
+      font-size: 18px;
+    }
+
+    .detail {
+      margin-top: 1rem;
+      border: 1px solid black;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 1rem;
+    }
+
+    .detail .img {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="first_nav">
+      <div class="location">
+        <!-- <h1 class="status"></h1> -->
+
+        <a href="#">
+          <div><i class="fa-solid   fa-location-dot"></i>Select Location</div>
+        </a>
+        <button class="find-state status fa solid">location</button>
+        <!--<select class="current_location" name="" id="">
+                <option value="" style="--clr:#f6d001">New Delhi</option>
+                <option value="" style="--clr:#edd136">Bangaluru</option>
+                <option value="" style="--clr:#f5d332">Uttrakhand</option>
+                <option value="" style="--clr:#edd768">Utar Pradesh</option>
+                <option value="" style="--clr:#f0d92a">Kolkata</option>
+                <option value="" style="--clr:#e7ca0d">Chandigarh</option>
+                <option value="" style="--clr:#f6d000">Bihar</option>
+            </select> -->
+      </div>
+      <div class="specifications">
+        <ul>
+          <li class="nav_of_spex_2"><a href="#">How it Works</a></li>
+          <li class="nav_of_spex_3"><a href="/admin/shopResitration">List your Shop</a></li>
+          <div class="nav_of_spex_4">
+            <% if(isAuthenticated) { %>
+              <form action="/admin/user/logout" method="post">
+                <button>logged out</button>
+              </form>
+              <%} else{ %>
+                <li>
+                  <a href="/admin/user/login">
+                    <button>login</button>
+                  </a>
+                </li>
+                <li>
+                  <a href="/admin/user/signup">
+                    <button>signup</button>
+                  </a>
+                </li>
+                <%}%>
+          </div>
+        </ul>
+      </div>
+    </nav>
+    <nav class="second_nav">
+      <div class="website_Logo">
+        <a href=""><img width="190" src="/img/weblogo.png" alt=""></a>
+      </div>
+      <div class="search">
+        <form action="/" method="" class="searchBar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" name="search" id="" placeholder="eg. iphone 14">
+          <!-- <input type="submit" value="SEARCH"> -->
+        </form>
+      </div>
+      <% if(isAuthenticated) { %>
+        <div class="dashboard">
+          <a href="/admin/dashboard/all-product">dashboard</a>
+        </div>
+        <%} else { %>
+          <div class="shop">
+            <i class="fa-duotone fa-cart-shopping-fast"></i>
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <% } %>
+
+
+    </nav>
+  </header>
+  <main>
+    <section class="product-detaile">
+      <div class="single-image">
+        <div class="big">
+          <img
+            src="https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/m/o/b/-original-imaghx9qkugtbfrn.jpeg?q=70"
+            alt="" class="big-img">
+        </div>
+        <div class="other-image">
+          <div class="small">
+            <img
+              src="https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/m/o/b/-original-imaghx9qkugtbfrn.jpeg?q=70"
+              alt="" class="small-img">
+          </div>
+          <div class="small">
+            <img
+              src="https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/m/o/b/-original-imaghx9qkugtbfrn.jpeg?q=70"
+              alt="" class="small-img">
+          </div>
+          <div class="small">
+            <img
+              src="https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/m/o/b/-original-imaghx9qkugtbfrn.jpeg?q=70"
+              alt="" class="small-img">
+          </div>
+          <div class="small">
+            <img
+              src="https://rukminim1.flixcart.com/image/416/416/xif0q/mobile/m/o/b/-original-imaghx9qkugtbfrn.jpeg?q=70"
+              alt="" class="small-img">
+          </div>
+        </div>
+      </div>
+      <div class="info">
+        <h2>Apple iPhone 12 (128GB) - White</h2>
+        <!-- <p>rating</p>
+        <div>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </div> -->
+        <span>₹ <p>60,990</p></span>
+        <div class="btn">
+          <button>book now</button>
+        </div>
+
+
+
+
+
+        <div class="shopDetails">
+          <h1>Shop Details</h1>
+          <div class="detail">
+            <div class="img">
+              <img src="" alt="">
+            </div>
+            <div class="ownerdetail">
+              <div class="name">
+                <h1>Lucky Mobile communication</h1>
+              </div>
+              <div class="rating">
+
+                <div>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+ 
+
+                <div class="address">
+                  <span>1/107 sanjay gandhi colony rawan teela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <!-- <div class="specs">
+          <h3>About the product</h3>
+          <ul>
+            <li>6.1-inch (15.5 cm diagonal) Super Retina XDR display</li>
+            <li>Ceramic Shield, tougher than any smartphone glass</li>
+            <li> A14 Bionic chip, the fastest chip ever in a smartphone</li>
+            <li>
+              Advanced dual-camera system with 12MP Ultra Wide and Wide cameras; Night mode, Deep Fusion, Smart HDR 3,
+              4K Dolby Vision HDR recording
+            </li>
+            <li>
+              12MP TrueDepth front camera with Night mode, 4K Dolby Vision HDR recording
+            </li>
+            <li>
+              Industry-leading IP68 water resistance
+            </li>
+            <li>
+              Supports MagSafe accessories for easy attach and faster wireless charging
+            </li>
+            <li>
+              iOS with redesigned widgets on the Home screen, all-new App Library, App Clips and more
+            </li>
+          </ul>
+        </div> -->
+
+
+        </div>
+    </section>
+</body>
+
+</html>
