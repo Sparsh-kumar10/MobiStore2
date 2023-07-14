@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/productPage2.css">
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+    <section class="product">
+        <div class="product__photo">
+            <div class="photo-container">
+                <div class="photo-main">
+                    <!-- <div class="controls">
+                        <i class="material-icons">share</i>
+                        <i class="material-icons">favorite_border</i>
+                    </div> -->
+                    <img  src=" https://rukminim1.flixcart.com/image/416/416/kg15ocw0/mobile/f/q/g/samsung-galaxy-s20-fe-sm-g780fzgnins-original-imafwd2jzgfdejgc.jpeg?q=70"
+                        alt="green apple slice">
+                </div>
+                <!-- <div class="photo-album">
+                    <ul>
+                        <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png"
+                                alt="green apple"></li>
+                        <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303532/codepen/delicious-apples/half-apple.png"
+                                alt="half apple"></li>
+                        <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303160/codepen/delicious-apples/green-apple-flipped.png"
+                                alt="green apple"></li>
+                        <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303708/codepen/delicious-apples/apple-top.png"
+                                alt="apple top"></li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+        <div class="product__info">
+            <div class="title">
+                <h1>Delicious Apples</h1>
+                <span>COD: 45999</span>
+            </div>
+            <div class="price">
+                R$ <span>7.93</span>
+            </div>
+            <!-- <div class="variant">
+                <h3>SELECT A COLOR</h3>
+                <ul>
+                    <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png"
+                            alt="green apple"></li>
+                    <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302752/codepen/delicious-apples/yellow-apple.png"
+                            alt="yellow apple"></li>
+                    <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302427/codepen/delicious-apples/orange-apple.png"
+                            alt="orange apple"></li>
+                    <li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png"
+                            alt="red apple"></li>
+                </ul>
+            </div> -->
+            <div class="description">
+                <h3>BENEFITS</h3>
+                <ul>
+                    <li>Apples are nutricious</li>
+                    <li>Apples may be good for weight loss</li>
+                    <li>Apples may be good for bone health</li>
+                    <li>They're linked to a lowest risk of diabetes</li>
+                </ul>
+            </div>
+
+
+            <form  action="/user/cart" method="GET">
+                <div class="form-group">
+                    <label>Address </label>
+                    <input class="form-control" id="from_places" placeholder="Enter a location" />
+                    <input id="origin" name="origin" required="" type="hidden" />
+                </div>
+                <input type="submit" value="Book Now">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Design from <a href="https://dribbble.com/shots/5216438-Daily-UI-012">dribbble shot</a> of <a
+                href="https://dribbble.com/rodrigorramos">Rodrigo Ramos</a></p>
+    </footer>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/test.js"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&language=en&key=AIzaSyC-AGJY9dKQB4hCuNsTlZPCC_z87wR3LBc&callback=initMap"
+        type="text/javascript"></script>
+</body>
+
+</html>

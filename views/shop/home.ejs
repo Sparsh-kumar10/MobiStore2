@@ -45,9 +45,9 @@
                     <li class="nav_of_spex_3"><a href="/admin/shopResitration">List your Shop</a></li>
                     <div class="nav_of_spex_4">
                         <% if(isAuthenticated) { %>
-                                <form action="/admin/user/logout" method="post">
-                                    <button>logged out</button>
-                                </form>
+                            <form action="/admin/user/logout" method="post">
+                                <button>logged out</button>
+                            </form>
                             <%} else{ %>
                                 <li>
                                     <a href="/admin/user/login">
@@ -59,7 +59,7 @@
                                         <button>signup</button>
                                     </a>
                                 </li>
-                            <%}%>
+                                <%}%>
                     </div>
                 </ul>
             </div>
@@ -72,20 +72,21 @@
                 <form action="" method="" class="searchBar">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" name="search" id="" placeholder="eg. iphone 14">
-                    <!-- <input type="submit" value="SEARCH"> -->
+                    <input type="submit" value="SEARCH">
                 </form>
             </div>
-            <% if(isAuthenticated) { %>
-            <div class="dashboard">
-                <a href="/admin/dashboard/all-product">dashboard</a>
-            </div>
-            <%} else { %>
-                <div class="shop">
-                    <i class="fa-duotone fa-cart-shopping-fast"></i>
-                    <i class="fa-solid fa-user"></i>
+            <% if(shopfind) { %>
+                <div class="dashboard">
+                    <a href="/admin/dashboard/all-product">dashboard</a>
                 </div>
-            <% } %>
+                <%} else if(isAuthenticated) { %>
+                    <div class="shop">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <% } else { %>
 
+
+                        <%}%>
 
         </nav>
     </header>
@@ -97,8 +98,8 @@
                 <h1 class="heading">GET IT DELIVERED.</h1>
                 <h1 class="heading">TRUST OF LOCAL SHOP</h1>
                 <h1 class="heading">AT COMFORT OF YOUR HOME.</h1>
+            </ul>
         </div>
-
     </div>
 
     <!-- main  

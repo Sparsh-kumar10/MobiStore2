@@ -23,6 +23,19 @@ const ProductSchema=new Schema({
         type:Schema.Types.ObjectId,
         ref:'shopUser',
         required:true
+    },
+    distance:{
+        type:Number
+    },
+    location:{
+        type:{
+            type:String,
+            default:"Point"
+        },
+        coordinates:{
+            type:[Number],
+            index:"2dsphere"
+        }
     }
 });
 

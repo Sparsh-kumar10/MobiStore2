@@ -11,12 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/search.css">
     <title>MobiStore</title>
     <style>
-        main {
+        /* main {
             width: 100%;
             display: grid;
-            grid-template-columns: 1.2fr 5fr;
+            grid-template-columns: 1fr;
             padding: 1rem;
             gap: 1rem;
         }
@@ -61,7 +62,7 @@
 
         .info {
             background-color: blanchedalmond;
-        }
+        } */
     </style>
 </head>
 
@@ -121,27 +122,26 @@
                     <input type="submit" value="SEARCH">
                 </form>
             </div>
-            <% if(isAuthenticated) { %>
+            <% if(shopfind) { %>
                 <div class="dashboard">
-                    <a href="/admin/dashboard">dashboard</a>
+                    <a href="/admin/dashboard/all-product">dashboard</a>
                 </div>
-                <%} else { %>
+                <%} else if(isAuthenticated) { %>
                     <div class="shop">
-                        <i class="fa-duotone fa-cart-shopping-fast"></i>
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <% } %>
+                    <% } else { %>
+
+
+                        <%}%>
 
 
         </nav>
     </header>
 
 
-    <div class="searchProduct">
+    <!-- <div class="searchProduct">
         <main>
-            <div class="sortingSection">
-
-            </div>
             <% if (prods.length> 0) { %>
                 <div class="grid">
                     <% for (let product of prods) { %>
@@ -173,52 +173,106 @@
                     <% } %>
         </main>
 
+    </div> -->
+
+    <% if (prods.length> 0) { %>
+     <div class="bodyContainer">
+        <div class="mainContent">
+
+            <!-- first phone -->
+
+            <% for (let product of prods) { %>
+
+                <div class="Content">
+                    <div class="aboutProduct">
+                        <div class="image">
+                            <img type="image" src="<%= product.imageurl %>"
+                                alt="" height="240" width="auto">
+                        </div>
+                        <div class="aboutPhone">
+                            <ul>
+                                <li><strong><%= product.name %></strong></li>
+                                <li><%= product.distance %>KM</li>
+                                <li>16.0 CM(6.3 inch) 10.8MP Front Camera</li>
+                                <li>google Tensor G2 Processor</li>
+                            </ul>
+                        </div>
+                        <div class="price">
+                            <span class="rupees-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                                    <path
+                                        d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+                                </svg>
+                            </span><strong><%= product.price %></strong>
+                        </div>
+                    </div>
+                    <div class="orderOptions1">
+                        <div class="orderBtn1">
+                            <button class="buttons1"> BookNow</button>
+                            <!-- <button class="buttons1"> OrderNow</button> -->
+                        </div>
+                        <div class="viewMoreBtn1"><a href="#">View More Details</a></div>
+                    </div>
+                </div>
+
+                <% } %>
+
 
     </div>
+        </div>
+        <% } else { %>
+            <h1>No Products Found!</h1>
+            <% } %>
 
 
 
-    <!-- footer -->
-    <footer>
-        <div class="contact_container">
-            <a href="">
-                <div class="footer_logo">
-                    <img src="/img/weblogo.png" width="190" alt="">
-                </div>
-            </a>
-            <div class="social">
-                <a href=""><i class="fa-brands fa-youtube"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
-        </div>
-        <div class="contact">
-            <h2>Contact Us</h2>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <textarea name="" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-            <button class="submit">Submit</button>
-        </div>
-        <div class="Croma-Support">
-            <h2>Mobistore support</h2>
-            <ul>
-                <li><a href="">Help and Support</a></li>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Buying Guide</a></li>
-                <li><a href="">Return Policy</a></li>
-                <li><a href="">Privacy Policy</a></li>
-            </ul>
-        </div>
-        <div class="customer_car">
-            <h2>Customer Care</h2>
-            <div>
-                <span>Phone: 8792097283</span>
-                <span>, 9887934024</span>
-            </div>
+                <!-- footer -->
+                <footer>
+                    <div class="contact_container">
+                        <a href="">
+                            <div class="footer_logo">
+                                <img src="/img/weblogo.png" width="190" alt="">
+                            </div>
+                        </a>
+                        <div class="social">
+                            <a href=""><i class="fa-brands fa-youtube"></i></a>
+                            <a href=""><i class="fa-brands fa-instagram"></i></a>
+                            <a href=""><i class="fa-brands fa-twitter"></i></a>
+                            <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact">
+                        <h2>Contact Us</h2>
+                        <input type="text" placeholder="Name">
+                        <input type="email" placeholder="Email">
+                        <textarea name="" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                        <button class="submit">Submit</button>
+                    </div>
+                    <div class="Croma-Support">
+                        <h2>Mobistore support</h2>
+                        <ul>
+                            <li><a href="">Help and Support</a></li>
+                            <li><a href="">FAQs</a></li>
+                            <li><a href="">Buying Guide</a></li>
+                            <li><a href="">Return Policy</a></li>
+                            <li><a href="">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="customer_car">
+                        <h2>Customer Care</h2>
+                        <div>
+                            <span>Phone: 8792097283</span>
+                            <span>, 9887934024</span>
+                        </div>
 
-        </div>
-    </footer>
+                    </div>
+                </footer>
+
+
+                <script>
+
+                </script>
 </body>
 
 </html>

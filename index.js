@@ -38,6 +38,8 @@ app.use(
     })
 );
 
+app.use(bodyParser.json()); // application/json
+
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH');
@@ -70,8 +72,8 @@ app.use('/',require('./routes/home'))
 
 mongoose.connect(MONGODB_URI)
     .then(result => {
-        app.listen(2000);
-        console.log(`searver is started at 2000`)
+        app.listen(3000);
+        console.log('searver is started at 3000')
     })
     .catch(err => {
         console.log('server not start');

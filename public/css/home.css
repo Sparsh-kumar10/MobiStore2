@@ -54,7 +54,7 @@ header .first_nav{
     justify-content: space-between;
     padding:.7rem 1rem;
     width:100%;
-    background-color: #ECF9FF ;
+    background-color: #0f6891 ;
 }
 header .first_nav .location{
     display: flex;
@@ -145,10 +145,12 @@ header .second_nav{
     height:4rem;
     align-items: center;
     border: none;
-    border-bottom:solid #e7e6e6;
+    border-bottom:solid #efebeb;
     border-width: 1.4px;
     position:sticky;
     padding: 1rem;
+    background-color: rgb(246, 242, 235);
+    box-shadow: 0 1px 10px rgb(93, 93, 93) ;
 
 }
 header .second_nav .website_Logo{

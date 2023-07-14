@@ -2,7 +2,8 @@
 const Product = require('../models/product')
 const mongoose = require('mongoose');
 const adminProduct = require('../models/adminProduct')
-const { ObjectId } = require('mongodb')
+const { ObjectId } = require('mongodb');
+const shopRegistration = require('../models/shopRegistration');
 
 
 exports.addProduct = (req, res, next) => {
@@ -28,18 +29,35 @@ exports.orders = (req, res, next) => {
     res.render('dashboard/orders')
 }
 
-exports.postAddproduct = (req, res, next) => {
+exports.postAddproduct = async (req, res, next) => {
     const mobilename = req.body.name;
     const price = req.body.price;
     const imageurl = req.body.imageurl;
     const description = req.body.description
+    const distance=0;
+
+    const userid=req.user._id
+    let shoplocation
+    // console.log(userid)
+
+    await shopRegistration.findOne({userId:userid}).then(shop=>{
+        console.log(shop.Pname)
+        shoplocation=Object.assign(shop)
+    }).catch(err=>{
+        console.log(err);
+    })
+
+    console.log(shoplocation)
+
 
     const product = new Product({
         name: mobilename,
         imageurl: imageurl,
         price: price,
         description: description,
-        userId: req.user,
+        userId: req.user._id,
+        distance:distance,
+        location:shoplocation.location,
         editing: false
     });
 

@@ -10,6 +10,9 @@ const ShopUser=new Schema({
         type:String,
         required:true
     },
+    location:{
+        type:[],
+    }
 })
 
 module.exports=mongoose.model('ShopUser',ShopUser);

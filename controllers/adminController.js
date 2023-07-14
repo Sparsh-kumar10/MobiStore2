@@ -18,7 +18,10 @@ exports.shopRegistrationPost = (req, res, next) => {
         Pname: PersonName,
         Pnumber: PersonContact,
         Pemail: PersonEmail,
-        storelocation:[latitude,logitude],
+        location:{
+            type:"Point",
+            coordinates:[latitude,logitude]
+        },
         userId:req.user
 
     });

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+
+<body>
+    <!-- <header>
+        <nav class="second_nav">
+            <div class="website_Logo">
+                <a href="/"><img width="190" src="/img/weblogo.png" alt=""></a>
+            </div>
+            <div class="search">
+                <div class="searchBar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" name="" id="">
+                    <input type="submit" value="SEARCH">
+                </div>
+            </div>
+        </nav>
+    </header> -->
+    <main>
+        <div class="heading">
+            <div>
+
+            </div>
+        </div>
+        <form action="/admin/registration" method="POST">
+            <div class="items">
+                <div class="website_logo">
+                    <a href="/"><img width="190" src="./img/weblogo.png" alt=""></a>
+                </div>
+                <div class="item item1">
+                    <label for="">Enter Name of Your Shop</label>
+                    <input type="text" name="Bname" placeholder="Enter Your Business Name">
+                </div>
+                <div class="item item2">
+                    <label for="">Enter Your Name</label>
+                    <input type="text" name="Pname" placeholder="Enter Your Name">
+                </div>
+                <div class="item item3">
+                    <label for="">Enter Your mobile number</label>
+                    <input type="number" name="Pnumber" id="">
+                </div>
+                <div class="item item4">
+                    <label for="">Enter Your email addresss</label>
+                    <input type="email" name="Pemail">
+                </div>
+                <div class="item item5">
+                    <label for="">Enter your location</label>
+                    <div>
+                        <input type="text" name="latitude" class="latitude">
+                        <input type="text" name="logitude" class="logitude">
+                        <div class="find-state status fa solid btn">churrent location</div>
+                    </div>
+                </div>
+
+                <div class="item item6">
+                    <form id="distance_form">
+                        <div class="form-group">
+                            <label>Address </label>
+                            <input class="form-control" id="from_places" placeholder="Enter a location" />
+                            <input id="origin" name="origin" required="" type="hidden" />
+                        </div>
+                    </form>
+                </div>
+
+
+
+                <div class="">
+                    <input type="checkbox" name="" id="">
+                    <a href="">Terms and conditions</a>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register" class="btn">
+                </div>
+            </div>
+        </form>
+    </main>
+
+
+    <script src="/js/location.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/test.js"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&language=en&key=AIzaSyC-AGJY9dKQB4hCuNsTlZPCC_z87wR3LBc&callback=initMap"
+        type="text/javascript"></script>
+</body>
+
+</html>
