@@ -139,7 +139,7 @@ exports.homePage = async (req, res, next) => {
                 for (let i = 0; i < productResults.length; i++) {
                     const destination = `${productResults[i].location.coordinates[0]},${productResults[i].location.coordinates[1]}`;
 
-                    distance.key('AIzaSyC-AGJY9dKQB4hCuNsTlZPCC_z87wR3LBc');
+                    distance.key('api-key');
                     distance.units('imperial');
 
                     const distances = await new Promise((resolve, reject) => {
