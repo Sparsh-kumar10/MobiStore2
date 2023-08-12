@@ -10,90 +10,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/css/home.css">
+    <!-- <link rel="stylesheet" href="/css/home.css"> -->
     <link rel="stylesheet" href="/css/search.css">
     <title>MobiStore</title>
-    <style>
-        /* main {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr;
-            padding: 1rem;
-            gap: 1rem;
-        }
-
-        .sortingSection {
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 2px;
-
-        }
-
-        main .grid {
-            max-width: 100%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-            grid-template-rows: repeat(auto-fit, minmax(10rem, 1fr));
-            gap: 1rem;
-            padding: 1rem;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 2px;
-
-        }
-
-        main .grid .card {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-            padding: .5rem;
-        }
-
-        .card .card__image {
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-        }
-
-        .card__image img {
-            width: 100%;
-            height: 100%;
-            aspect-ratio: 1/1;
-            object-fit: contain;
-        }
-
-        .info {
-            background-color: blanchedalmond;
-        } */
-    </style>
+    <style></style>
 </head>
 
 <body>
     <header>
         <nav class="first_nav">
             <div class="location">
-                <!-- <h1 class="status"></h1> -->
 
-                <a href="#">
-                    <div><i class="fa-solid   fa-location-dot"></i>Select Location</div>
-                </a>
+                <div><i class="fa-solid   fa-location-dot"></i></div>
+
                 <button class="find-state status fa solid">location</button>
-                <!--<select class="current_location" name="" id="">
-                    <option value="" style="--clr:#f6d001">New Delhi</option>
-                    <option value="" style="--clr:#edd136">Bangaluru</option>
-                    <option value="" style="--clr:#f5d332">Uttrakhand</option>
-                    <option value="" style="--clr:#edd768">Utar Pradesh</option>
-                    <option value="" style="--clr:#f0d92a">Kolkata</option>
-                    <option value="" style="--clr:#e7ca0d">Chandigarh</option>
-                    <option value="" style="--clr:#f6d000">Bihar</option>
-                </select> -->
+
             </div>
-            <div class="specifications">
+            <div class="specifications2">
                 <ul>
-                    <li class="nav_of_spex_2"><a href="#">How it Works</a></li>
-                    <li class="nav_of_spex_3"><a href="/shop">List your Shop</a></li>
+                    <li class="nav_of_spex_3"><a href="/admin/shopResitration">Became Seller</a></li>
                     <div class="nav_of_spex_4">
                         <% if(isAuthenticated) { %>
-                            <form action="/admin/user/logout" method="post">
-                                <button>logged out</button>
+                            <form action="/admin/user/logout" method="post" class="logOutbtn">
+                                <button class="logOutbtn">logged out</button>
                             </form>
                             <%} else{ %>
                                 <li>
@@ -101,7 +40,7 @@
                                         <button>login</button>
                                     </a>
                                 </li>
-                                <li>
+                                <li class="signupbotton">
                                     <a href="/admin/user/signup">
                                         <button>signup</button>
                                     </a>
@@ -128,98 +67,74 @@
                 </div>
                 <%} else if(isAuthenticated) { %>
                     <div class="shop">
-                        <i class="fa-solid fa-user"></i>
+                        <p>Ankit singh </p>
+                        <div class="tooltip">
+                            <i class="fa-solid fa-user"></i>
+                            <a href="#" class="tooltiptext">Order</a>
+                        </div>
                     </div>
                     <% } else { %>
 
 
                         <%}%>
 
-
         </nav>
     </header>
 
 
-    <!-- <div class="searchProduct">
-        <main>
-            <% if (prods.length> 0) { %>
-                <div class="grid">
-                    <% for (let product of prods) { %>
-                        <a href="/productDetail/<%= product._id %>">
-                            <article class="card product-item">
-                                <div class="card__image">
-                                    <img src="<%= product.imageurl %>" alt="">
-                                </div>
-                                <header class="card__header">
-                                    <h1 class="product__title">
-                                        <%= product.name %>
-                                    </h1>
-                                </header>
-                                <div class="card__content">
-                                    <h2 class="product__price">$
-                                        <%= product.price %>
-                                    </h2>
-                                    <p class="product__description">
-                                        <%= product.description %>
-                                    </p>
-                                </div>
-                            </article>
-                        </a>
-
-                        <% } %>
-                </div>
-                <% } else { %>
-                    <h1>No Products Found!</h1>
-                    <% } %>
-        </main>
-
-    </div> -->
-
     <% if (prods.length> 0) { %>
-     <div class="bodyContainer">
-        <div class="mainContent">
+        <div class="bodyContainer">
+            <div class="mainContent">
 
-            <!-- first phone -->
+                <!-- first phone -->
 
-            <% for (let product of prods) { %>
+                <% prods.forEach(product => { %>
 
-                <div class="Content">
-                    <div class="aboutProduct">
-                        <div class="image">
-                            <img type="image" src="<%= product.imageurl %>"
-                                alt="" height="240" width="auto">
+                        <div class="Content">
+                            <div class="aboutProduct">
+                                <div class="image">
+                                    <img type="image" src="<%= product.imageurl %>" alt="" height="240" width="auto">
+                                </div>
+                                <div class="aboutPhone">
+                                    <ul>
+                                        <li><strong>
+                                                <%= product.name %>
+                                            </strong></li>
+                                        <li>
+                                            <%= product.distance %>KM
+                                        </li>
+                                        <li>
+                                            <%= product.shopResitration %>
+                                        </li>
+                                        <li>google Tensor G2 Processor</li>
+                                    </ul>
+                                </div>
+                                <div class="price">
+                                    <span class="rupees-icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+                                        </svg>
+                                    </span><strong>
+                                        <%= product.price %>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="orderOptions1">
+                                <div class="orderBtn1">
+                                    <form action="/user/order" method="post">
+                                        <input type="hidden" value="<%= product._id%>" name="productId">
+                                        <button class="buttons1" type="submit">BookNow</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                        <div class="aboutPhone">
-                            <ul>
-                                <li><strong><%= product.name %></strong></li>
-                                <li><%= product.distance %>KM</li>
-                                <li>16.0 CM(6.3 inch) 10.8MP Front Camera</li>
-                                <li>google Tensor G2 Processor</li>
-                            </ul>
-                        </div>
-                        <div class="price">
-                            <span class="rupees-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                                    <path
-                                        d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
-                                </svg>
-                            </span><strong><%= product.price %></strong>
-                        </div>
-                    </div>
-                    <div class="orderOptions1">
-                        <div class="orderBtn1">
-                            <button class="buttons1"> BookNow</button>
-                            <!-- <button class="buttons1"> OrderNow</button> -->
-                        </div>
-                        <div class="viewMoreBtn1"><a href="#">View More Details</a></div>
-                    </div>
-                </div>
 
-                <% } %>
+                        <% }); %>
 
 
-    </div>
+            </div>
         </div>
         <% } else { %>
             <h1>No Products Found!</h1>
@@ -229,10 +144,11 @@
 
                 <!-- footer -->
                 <footer>
+
                     <div class="contact_container">
                         <a href="">
                             <div class="footer_logo">
-                                <img src="/img/weblogo.png" width="190" alt="">
+                                <img src="../img/weblogo-footer.png" width="190" alt="">
                             </div>
                         </a>
                         <div class="social">
@@ -242,21 +158,14 @@
                             <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="contact">
-                        <h2>Contact Us</h2>
-                        <input type="text" placeholder="Name">
-                        <input type="email" placeholder="Email">
-                        <textarea name="" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                        <button class="submit">Submit</button>
-                    </div>
                     <div class="Croma-Support">
-                        <h2>Mobistore support</h2>
+                        <h2>Support</h2>
                         <ul>
-                            <li><a href="">Help and Support</a></li>
-                            <li><a href="">FAQs</a></li>
-                            <li><a href="">Buying Guide</a></li>
-                            <li><a href="">Return Policy</a></li>
-                            <li><a href="">Privacy Policy</a></li>
+                            <li><a href="#" target="_blank">Contact Us</a></li>
+                            <li><a href="./FAQs.html" target="_blank">FAQs</a></li>
+                            <li><a href="./buyGuide.html" target="_blank">Buying Guide</a></li>
+                            <li><a href="./returnPolicy.html" target="_blank">Return Policy</a></li>
+                            <li><a href="./PrivacyPolicy.html" target="_blank">Privacy Policy</a></li>
                         </ul>
                     </div>
                     <div class="customer_car">
@@ -268,11 +177,29 @@
 
                     </div>
                 </footer>
+                <div>
+                    <div class="lastfooter">
+                        <div class="sitelog">
+                            <img src="../img/weblogo-footer.png" width="140" alt="sitelogo" sizes="" srcset="">
+                        </div>
+                        <div class="footer_links">
+                            <ul>
+                                <li><a href="#" target="_blank">Terms & Conditions </a></li>
+                                <li><a href="#" target="_blank">Shipping & Warranty</a></li>
+                                <li><a href="#" target="_blank">Copyright Guidelines</a></li>
+                                <li><a href="#" target="_blank">Contributor Partners</a></li>
+                            </ul>
+                        </div>
+                        <div class="copyright">
+                            <div class="copyright_symbol">
+                                <span> &#169;</span>
+                                <span>2023 Copyright</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-                <script>
-
-                </script>
 </body>
 
 </html>

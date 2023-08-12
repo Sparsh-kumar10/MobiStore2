@@ -1,4 +1,12 @@
-<%- include('./dashinclude/head.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= title %></title>
     <style>
         * {
             box-sizing: border-box;
@@ -7,64 +15,159 @@
         }
 
         .head {
-            background-color: aqua;
+            background-color: rgb(209, 227, 227);
             width: 100%;
             height: 6rem;
         }
 
         .dashnav nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-evenly;
             list-style: none;
         }
 
         .dashnav nav a {
             width: 100%;
             height: 100%;
-            background-color: blueviolet;
+            background-color: rgba(209, 227, 227, 0.925);
             text-align: center;
-            padding: 0.5rem 0rem;
-        }
-
-        .dashnav nav a {
+            padding: .5rem 0rem;
             text-decoration: none;
             color: black;
             border: 2px solid white;
+            font-size: larger;
+            border-radius: 5px;
+        }
+
+        .dashnav nav a:hover {
+            box-shadow: 5px 5px 13px rgb(39, 39, 39);
         }
 
         .first_nav {
             display: flex;
             justify-content: space-between;
             height: 4rem;
+            background: #fff;
             align-items: center;
             border: none;
             border-bottom: solid #e7e6e6;
             border-width: 1.4px;
             position: sticky;
             padding: 1rem;
+
         }
 
         .first_nav .website_Logo {
             padding: 12px;
         }
 
+        #liveserach {
+            background-color: gainsboro;
+            border-color: black;
+            border-width: thin;
+            border-style: solid;
+            width: 170px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        a:link,
+        a:hover,
+        a:visited,
+        a:active {
+            color: black;
+        }
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* nav baar */
+        .head {
+            background-color: rgb(209, 227, 227);
+            width: 100%;
+            height: 6rem;
+        }
+
+        .dashnav nav {
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+        }
+
+        .dashnav nav a {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(209, 227, 227, 0.925);
+            text-align: center;
+            padding: .5rem 0rem;
+            text-decoration: none;
+            color: black;
+            border: 2px solid white;
+            font-size: larger;
+            border-radius: 5px;
+        }
+
+        .dashnav nav a:hover {
+            box-shadow: 5px 5px 13px rgb(39, 39, 39);
+        }
+
+        .first_nav {
+            display: flex;
+            justify-content: space-between;
+            height: 4rem;
+            background: #fff;
+            align-items: center;
+            border: none;
+            border-bottom: solid #e7e6e6;
+            border-width: 1.4px;
+            position: sticky;
+            padding: 1rem;
+
+        }
+
+        .first_nav .website_Logo {
+            padding: 12px;
+        }
+
+        #liveserach {
+            background-color: gainsboro;
+            border-color: black;
+            border-width: thin;
+            border-style: solid;
+            width: 170px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        a:link,
+        a:hover,
+        a:visited,
+        a:active {
+            color: black;
+        }
+
+
+        /* main container for editing and delete action */
         main {
             display: flex;
             width: 100%;
             padding: 1rem;
-            justify-content: space-between;
             flex-wrap: wrap;
-        }
-
-        .sortingSection {
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 2px;
         }
 
         main .grid {
             display: flex;
-            width: 24%;
-            height: auto;
-            border-radius: 10rem;
+            width: 23%;
+            margin: .5em;
+            border-radius: 12px;
         }
 
         main .grid .card {
@@ -72,23 +175,36 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.35);
             padding-top: 0.5rem;
-            border-radius: 4rem;
+            border-radius: 5px;
+
+
         }
 
-        .card .card__image {
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            border-radius: 0.2rem;
+        .card__image {
+            margin: auto;
+            width: 70%;
         }
 
         .card__image img {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
         }
+
+        /* .card .card__image {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    border-radius: 0.2rem;
+    }
+
+    .card__image img {
+    width: 100%;
+    height: 100%;
+    padding: 3px;
+    object-fit: contain;
+    } */
 
         .card__header p {
             font-size: 20px;
@@ -100,6 +216,8 @@
         }
 
         .card__content {
+            display: flex;
+            flex-direction: column;
             padding-top: 5px;
         }
 
@@ -140,11 +258,18 @@
             width: 6rem;
         }
 
-        form {
+        .actions {
+            margin-top: 12px;
             display: flex;
             justify-content: space-between;
-            padding-top: 5px;
-            padding-bottom: 8x;
+            padding-left: 18px;
+            padding-right: 18px;
+
+        }
+
+        form {
+            height: fit-content;
+            width: fit-content;
         }
 
         .btn {
@@ -152,20 +277,17 @@
             display: inline;
             border-radius: 5px;
             outline: none;
-            border: solid .1px black;
+            border: solid .1px rgb(196, 196, 196);
             padding: 4px 12px;
             cursor: pointer;
+            background-color: rgb(226, 226, 226);
+            text-decoration: none;
         }
 
-        .btn:first-child:hover {
-            background: rgb(94, 255, 0);
-            transition: 1s;
+        .btn:hover {
+            box-shadow: 2px 3px 7px gray;
+            transition: .1s;
 
-        }
-
-        .btn:last-child:hover {
-            background: rgb(224, 0, 0);
-            transition: 1s;
         }
 
         @media (max-width: 900px) {
@@ -185,100 +307,64 @@
                 border-radius: 10rem;
             }
         }
+
+        .shopname {
+            font-size: 22px;
+        }
+
+        .ownername {
+            font-size: 18px;
+        }
     </style>
-    <!-- <link rel="stylesheet" href="/css/product.css"> -->
+</head>
 
-    </head>
+<body>
 
-    <body>
-
-        <%- include('./dashinclude/main.ejs') %>
-
-            <div class="search">
-                <input type="text">
-                <button>Search</button>
-            </div>
-            <main>
-                <!-- <% if (prods.length> 0) { %>
+    <%- include('./dashinclude/main.ejs') %>
+        <main>
+            <% if (prods.length> 0) { %>
+                <% for (let product of prods) { %>
                     <div class="grid">
-                        <% for (let product of prods) { %>
-                            <article class="card product-item">
-                                <div class="card__image">
-                                    <img src="<%= product.imageurl %>" alt="">
-                                </div>
-                                <div class="info">
-                                    <header class="card__header">
-                                        <h1 class="product__title">
-                                            <%= product.name %>
-                                        </h1>
-                                    </header>
-                                    <div class="card__content">
-                                        <h2 class="product__price">$
+
+                        <div class="card product-item">
+                            <div class="card__image">
+                                <img src="<%= product.imageurl %>" alt="" />
+                            </div>
+                            <div class="info">
+                                <header class="card__header">
+                                    <p class="product__title">
+                                        <%= product.name %>
+                                    </p>
+                                </header>
+                                <div class="card__content">
+                                    <h2 class="product__price">Price : <span>
                                             <%= product.price %>
-                                        </h2>
-                                        <p class="product__description">
+                                        </span></h2>
+                                    <p class="product__description">
+                                        <span>Description :</span>
+                                        <span>
                                             <%= product.description %>
-                                        </p>
-                                    </div>
-                                    <div class="card__actions">
+                                        </span>
+                                    </p>
+                                    <div class="card__actions actions">
+
                                         <a href="/admin/dashboard/edit-product/<%= product._id %>?edit=true"
                                             class="btn">Edit</a>
+
                                         <form action="/admin/dashboard/delete-product" method="POST">
                                             <input type="hidden" value="<%= product._id %>" name="productId">
                                             <button class="btn" type="submit">Delete</button>
                                         </form>
-
                                     </div>
                                 </div>
-                            </article>
-                            <% } %>
-                    </div>
-                    <% } else { %>
-                        <h1>No Products Found!</h1>
-                        <% } %> -->
-
-
-
-
-                            <% if (prods.length> 0) { %>
-                            <div class="grid">
-                                <% for (let product of prods) { %>
-                                <div class="card product-item">
-                                    <div class="card__image">
-                                        <img src="<%= product.imageurl %>" alt="" />
-                                    </div>
-                                    <div class="info">
-                                        <header class="card__header">
-                                            <p class="product__title"><%= product.name %></p>
-                                        </header>
-                                        <div class="card__content">
-                                            <h2 class="product__price">Price : <span><%= product.price %></span></h2>
-                                            <p class="product__description">
-                                                <span>Description :</span>
-                                                <span><%= product.description %></span>
-                                            </p>
-
-
-                                            <div class="card__actions">
-                                                <a href="/admin/dashboard/edit-product/<%= product._id %>?edit=true"
-                                                    class="btn">Edit</a>
-                                                <form action="/admin/dashboard/delete-product" method="POST">
-                                                    <input type="hidden" value="<%= product._id %>" name="productId">
-                                                    <button class="btn" type="submit">Delete</button>
-                                                </form>
-                                                <!-- <form action="" method="POST">
-                                                    <button class="btn">Edit</button>
-                                                    <button class="btn">Delete</button>
-                                                </form> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <% } %>
                             </div>
-                            <% } else { %>
-                                <h1>No Products Found!</h1>
-                                <% } %>
-            </main>
+                        </div>
 
-            <%- include('./dashinclude/footer.ejs') %>
+                    </div>
+                    <% } %>
+                        <% } else { %>
+                            <h1>No Products Found!</h1>
+                            <% } %>
+        </main>
+
+        <%- include('./dashinclude/footer.ejs') %>

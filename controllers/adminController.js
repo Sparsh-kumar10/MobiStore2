@@ -1,11 +1,25 @@
 const shopRegistration = require('../models/shopRegistration')
+const shopUser=require('../models/shopUser')
 
 
-exports.adminHome = (req, res, next) => {
-    res.render('admin/shopRegistration')
+exports.adminHome =async (req, res, next) => {
+    const userId=req.session.user._id
+    let user;
+     await shopUser.findById(userId).then(result=>{
+        console.log(result.location[0])
+        user=result
+    }).catch(err=>{
+        console.log(err);
+    })
+    res.render('admin/shopRegistration',{
+        user:user,
+        shopRegistration:"Shop Registration Form",
+        title:"Shop Registration"
+    })
 }
 
 exports.shopRegistrationPost = (req, res, next) => {
+
     const BussinessName = req.body.Bname;
     const PersonName = req.body.Pname;
     const PersonContact = req.body.Pnumber;

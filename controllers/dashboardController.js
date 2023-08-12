@@ -6,17 +6,37 @@ const { ObjectId } = require('mongodb');
 const shopRegistration = require('../models/shopRegistration');
 
 
-exports.addProduct = (req, res, next) => {
+exports.addProduct =async (req, res, next) => {
+    userId=req.session.user._id;
+    let shopuser;
+    await shopRegistration.findOne({userId:userId}).then(result=>{
+        console.log(result)
+        shopuser=result;
+    }).catch(err=>{
+        console.log(err);
+    })
     res.render('dashboard/addproduct', {
-        editing: false
+        editing: false,
+        shopuser:shopuser,
+        title:"Add Product"
     })
 }
 
-exports.allproduct = (req, res, next) => {
-    Product.find({ userId: req.user._id }).then(product => {
+exports.allproduct = async (req, res, next) => {
+    userId=req.session.user._id;
+    let shopuser;
+    await shopRegistration.findOne({userId:userId}).then(result=>{
+        console.log(result)
+        shopuser=result;
+    }).catch(err=>{
+        console.log(err);
+    })
+    await Product.find({ userId: req.user._id }).then(product => {
         console.log(product);
         res.render('dashboard/allproduct', {
-            prods: product
+            prods: product,
+            shopuser:shopuser,
+            title:"All Product"
         })
     })
 }
@@ -25,8 +45,19 @@ exports.accountsetting = (req, res, next) => {
     res.render('dashboard/accountsetting')
 }
 
-exports.orders = (req, res, next) => {
-    res.render('dashboard/orders')
+exports.orders = async (req, res, next) => {
+    userId=req.session.user._id;
+    let shopuser;
+    await shopRegistration.findOne({userId:userId}).then(result=>{
+        console.log(result)
+        shopuser=result;
+    }).catch(err=>{
+        console.log(err);
+    })
+    res.render('dashboard/orders',{
+        shopuser:shopuser,
+        title:"Order"
+    })
 }
 
 exports.postAddproduct = async (req, res, next) => {

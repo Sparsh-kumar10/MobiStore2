@@ -5,14 +5,15 @@
                 <a href="/"><img width="190" src="/img/weblogo.png" alt=""></a>
             </div>
             <div class="dashboard">
-                <h1>user_name</h1>
+                <h1 class="shopname"><%= shopuser.Bname %></h1>
+                <p class="ownername">Owner Name: <%= shopuser.Pname %></p>
             </div>
         </nav>
         <div class="dashnav">
             <nav>
                 <a href="/admin/dashboard/add-product">Add Product</a>
                 <a href="/admin/dashboard/all-product">All Products</a>
-                <a href="/admin/dashboard/orders">orders</a>
+                <a href="/admin/dashboard/orders">Orders</a>
             </nav>
         </div>
     </nav>

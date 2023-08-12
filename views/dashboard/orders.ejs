@@ -1,12 +1,372 @@
-<%- include('./dashinclude/head.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title><%= title %></title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .head {
+            background-color: rgb(209, 227, 227);
+            width: 100%;
+            height: 6rem;
+        }
+
+        .dashnav nav {
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+        }
+
+        .dashnav nav a {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(209, 227, 227, 0.925);
+            text-align: center;
+            padding: .5rem 0rem;
+            text-decoration: none;
+            color: black;
+            border: 2px solid white;
+            font-size: larger;
+            border-radius: 5px;
+        }
+
+        .dashnav nav a:hover {
+            box-shadow: 5px 5px 13px rgb(39, 39, 39);
+        }
+
+        .first_nav {
+            display: flex;
+            justify-content: space-between;
+            height: 4rem;
+            background: #fff;
+            align-items: center;
+            border: none;
+            border-bottom: solid #e7e6e6;
+            border-width: 1.4px;
+            position: sticky;
+            padding: 1rem;
+
+        }
+
+        .first_nav .website_Logo {
+            padding: 12px;
+        }
+
+        #liveserach {
+            background-color: gainsboro;
+            border-color: black;
+            border-width: thin;
+            border-style: solid;
+            width: 170px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        a:link,
+        a:hover,
+        a:visited,
+        a:active {
+            color: black;
+        }
+
+
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .head {
+            background-color: rgb(209, 227, 227);
+            width: 100%;
+            height: 6rem;
+        }
+
+        .dashnav nav {
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+        }
+
+        .dashnav nav a {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(209, 227, 227, 0.925);
+            text-align: center;
+            padding: .5rem 0rem;
+            text-decoration: none;
+            color: black;
+            border: 2px solid white;
+            font-size: larger;
+            border-radius: 5px;
+        }
+
+        /* .dashnav nav a:hover{
+                box-shadow: 5px 5px 13px rgb(39, 39, 39);
+            } */
+        .first_nav {
+            display: flex;
+            justify-content: space-between;
+            height: 4rem;
+            background: #fff;
+            align-items: center;
+            border: none;
+            border-bottom: solid #e7e6e6;
+            border-width: 1.4px;
+            position: sticky;
+            padding: 1rem;
+
+        }
+
+        .first_nav .website_Logo {
+            padding: 12px;
+        }
+
+        #liveserach {
+            background-color: gainsboro;
+            border-color: black;
+            border-width: thin;
+            border-style: solid;
+            width: 170px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+
+
+
+        .main {
+            display: flex;
+            width: 100%;
+            padding: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .main .mainItems {
+            display: flex;
+            flex-direction: column;
+            width: 23%;
+            margin: .5em;
+            border-radius: 12px;
+            padding-bottom: 12px;
+        }
+
+        .mainItems:hover {
+            box-shadow: 2px 2px 24px gray;
+        }
+
+        .image {
+            margin: auto;
+            width: 100%;
+        }
+
+        .image img {
+            width: 100%;
+        }
+
+        .details {
+            padding: 0px 15px;
+            margin: auto;
+            width: 100%;
+        }
+
+        .details .PhoneDetails p {
+            font-size: large;
+            font-weight: 550;
+            padding-bottom: 2px;
+        }
+
+        .userDetails p {
+            font-size: large;
+            font-weight: 600;
+            width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-bottom: 2px;
+        }
+
+        .userDetails p span {
+            font-size: large;
+            font-weight: 400;
+        }
+
+        @media (max-width: 900px) {
+            .main .mainItems {
+                display: flex;
+                width: 35%;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .main .mainItems {
+                display: flex;
+                width: 55%;
+                height: auto;
+            }
+        }
+
+        .shopname {
+            font-size: 22px;
+        }
+
+        .ownername {
+            font-size: 18px;
+        }
     </style>
-</head>
-<body>
-    
-    <%- include('./dashinclude/main.ejs') %>
-    <main>
-        <h1>orders</h1>
-    </main>
 
-<%- include('./dashinclude/footer.ejs') %>
+</head>
+
+<body>
+
+
+
+    <%- include('./dashinclude/main.ejs') %>
+
+
+        <div class="main">
+            <div class="mainItems">
+                <div class="image">
+                    <img src="/img/apple/13pro max.jpg" alt="mobile Image">
+                </div>
+                <div class="details">
+                    <div class="PhoneDetails">
+                        <p>Model Name : <span>iphone 13 pro max</span></p>
+                    </div>
+                    <div class="userDetails">
+
+                        <p>Name: <span>Sparsh Kumar</span></p>
+                        <p>E-mail: <span>sparsh202@gmail.com</span></p>
+                        <p>Contact No.: <span>sparsh202@gmail.com</span></p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Address :
+                            <span>apgarh golu ki gap 12/34 near medical shop</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainItems">
+                <div class="image">
+                    <img src="/img/apple/12pro max.jpg" alt="mobile Image">
+                </div>
+                <div class="details">
+                    <div class="PhoneDetails">
+                        <p>Model Name : <span>iphone 13 pro max</span></p>
+                    </div>
+                    <div class="userDetails">
+
+                        <p>Name: <span>Sparsh Kumar</span></p>
+                        <p>E-mail: <span>sparsh202@gmail.com</span></p>
+                        <p>Contact No.: <span>9980987867</span></p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Address :
+                            <span>apgarh golu ki gap 12/34 near medical shop</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainItems">
+                <div class="image">
+                    <img src="/img/apple/12.jpg" alt="mobile Image">
+                </div>
+                <div class="details">
+                    <div class="PhoneDetails">
+                        <p>Model Name : <span>iphone 13 pro max</span></p>
+                    </div>
+                    <div class="userDetails">
+
+                        <p>Name: <span>Sparsh Kumar</span></p>
+                        <p>E-mail: <span>sparsh202@gmail.com</span></p>
+                        <p>Contact No.: <span>sparsh202@gmail.com</span></p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Address :
+                            <span>apgarh golu ki gap 12/34 near medical shop</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainItems">
+                <div class="image">
+                    <img src="/img/apple/13.jpg" alt="mobile Image">
+                </div>
+                <div class="details">
+                    <div class="PhoneDetails">
+                        <p>Model Name : <span>iphone 13 pro max</span></p>
+                    </div>
+                    <div class="userDetails">
+
+                        <p>Name: <span>Sparsh Kumar</span></p>
+                        <p>E-mail: <span>sparsh202@gmail.com</span></p>
+                        <p>Contact No.: <span>sparsh202@gmail.com</span></p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Address :
+                            <span>apgarh golu ki gap 12/34 near medical shop</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainItems">
+                <div class="image">
+                    <img src="/img/apple/12pro max.jpg" alt="mobile Image">
+                </div>
+                <div class="details">
+                    <div class="PhoneDetails">
+                        <p>Model Name : <span>iphone 13 pro max</span></p>
+                    </div>
+                    <div class="userDetails">
+
+                        <p>Name: <span>Sparsh Kumar</span></p>
+                        <p>E-mail: <span>sparsh202@gmail.com</span></p>
+                        <p>Contact No.: <span>sparsh202@gmail.com</span></p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Address :
+                            <span>apgarh golu ki gap 12/34 near medical shop</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainItems">
+                <div class="image">
+                    <img src="/img/apple/12.jpg" alt="mobile Image">
+                </div>
+                <div class="details">
+                    <div class="PhoneDetails">
+                        <p>Model Name : <span>iphone 13 pro max</span></p>
+                    </div>
+                    <div class="userDetails">
+
+                        <p>Name: <span>Sparsh Kumar</span></p>
+                        <p>E-mail: <span>sparsh202@gmail.com</span></p>
+                        <p>Contact No.: <span>sparsh202@gmail.com</span></p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Address :
+                            <span>apgarh golu ki gap 12/34 near medical shop</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mainItems">
+                <div class="image">
+                    <img src="/img/apple/13pro max.jpg" alt="mobile Image">
+                </div>
+                <div class="details">
+                    <div class="PhoneDetails">
+                        <p>Model Name : <span>iphone 13 pro max</span></p>
+                    </div>
+                    <div class="userDetails">
+
+                        <p>Name: <span>Sparsh Kumar</span></p>
+                        <p>E-mail: <span>sparsh202@gmail.com</span></p>
+                        <p>Contact No.: <span>sparsh202@gmail.com</span></p>
+                        <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"> Address :
+                            <span>apgarh golu ki gap 12/34 near medical shop</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <%- include('./dashinclude/footer.ejs') %>

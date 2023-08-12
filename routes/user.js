@@ -1,8 +1,13 @@
 const express=require('express')
 const router=express.Router();
 const userController=require('../controllers/userController')
+const paymetController=require('../controllers/paymentController')
+const is_auth=require('../midleware/is-auth')
 
-router.get('/cart',userController.cart);
+router.post('/order',is_auth,userController.order);
+
+
+
 
 
 

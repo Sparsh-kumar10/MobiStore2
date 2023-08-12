@@ -5,38 +5,52 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="wrapper">
-            <div class="title">
-                <div class="website_Logo">
-                    <a href="/"><img width="190" src="/img/weblogo.png" alt=""></a>
+    <% if (errorMessage) { %>
+        <div class="message user-message--error">
+            <div class="error">
+                <%= errorMessage %>
+            </div>
+        </div>
+        <% } %>
+            <div class="container">
+                <div class="wrapper">
+                    <div class="title">
+                        <div class="website_Logo">
+                            <a href="/"><img width="190" src="/img/weblogo.png" alt=""></a>
+                        </div>
+                    </div>
+                    <form action="/admin/user/signup" method="POST">
+                        <div class="row">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username" name="name" value="<%=oldInput.name%>" required>
+                        </div>
+                        <div class="row">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" placeholder="Email" name="email"
+                                class="<%= validationErrors.find(e=>e.param=='email') ? 'invalid' : '' %>" id="email"
+                                value="<%= oldInput.email %> " required>
+                        </div>
+                        <div class="row">
+                            <i class="fa-solid fa-mobile"></i>
+                            <input type="number" placeholder="Mobile Number" name="mobile" value="<%= oldInput.mobile%>"
+                                required>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" name="password"
+                                class="<%= validationErrors.find(e=>e.param=='password') ? 'invalid' : '' %>"
+                                id="password" value="<%=oldInput.password%>" required>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="confirm password" name="confirmPassword"
+                                class="<%= validationErrors.find(e=>e.param=='confirmPassword') ? 'invalid' : '' %>"
+                                id="confirmPassword" value="<%=oldInput.confirmPassword%>" required>
+                        </div>
+                        <div class="row button">
+                            <input type="submit" value="Sign Up">
+                        </div>
+                        <div class="signup-link">If You are a member? <a href="/admin/user/login">LogIn</a></div>
+                    </form>
                 </div>
             </div>
-            <form action="/admin/user/signup" method="POST">
-                <!-- <div class="row">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username" name="username" required>
-                </div> -->
-                <div class="row">
-                    <i class="fa-regular fa-envelope"></i>
-                    <input type="text" placeholder="Email" name="email" required>
-                </div>
-                <!-- <div class="row">
-                    <i class="fa-solid fa-mobile"></i>
-                    <input type="number" placeholder="Mobile Number" name="phone" required>
-                </div> -->
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password" name="password" required>
-                </div>
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="confirm password" name="confirmPassword" required>
-                </div>
-                <div class="row button">
-                    <input type="submit" value="Sign Up">
-                </div>
-                <div class="signup-link">If You are a member? <a href="/admin/user/login">LogIn</a></div>
-            </form>
-        </div>
-    </div>

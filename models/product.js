@@ -21,7 +21,7 @@ const ProductSchema=new Schema({
     },
     userId:{
         type:Schema.Types.ObjectId,
-        ref:'shopUser',
+        ref:'shopRegistration',
         required:true
     },
     distance:{

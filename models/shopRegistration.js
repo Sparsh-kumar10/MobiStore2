@@ -2,18 +2,6 @@ const mongoose=require('mongoose');
 const { shopRegistration } = require('../controllers/adminController');
 
 const Schema=mongoose.Schema;
-
-// const GeoShcema=new Schema({
-//     type:{
-//         type:String,
-//         default:"Point"
-//     },
-//     coordinates:{
-//         type:[Number],
-//         index:"2dsphere"
-//     }
-// })
-
 const ShopRegisrationSchema=new Schema({
     Bname:{
         type:String,

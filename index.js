@@ -3,6 +3,7 @@ const express = require('express')
 const app = express();
 const path = require('path')
 const session = require('express-session')
+const flash=require('connect-flash')
 
 var jsonParser=bodyParser.json()
 
@@ -37,6 +38,8 @@ app.use(
         store: store
     })
 );
+
+app.use(flash())
 
 app.use(bodyParser.json()); // application/json
 

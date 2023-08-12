@@ -110,3 +110,20 @@ form .button input:hover{
 form .signup-link a:hover{
   text-decoration: underline;
 }
+
+.message{
+  position: relative;
+  top: 80px;
+  /* border: 1px solid black; */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message .error{
+  padding: .5rem 2rem;
+  background-color: white;
+  color: red;
+  font-weight: 800;
+  /* border: 1px solid black; */
+}

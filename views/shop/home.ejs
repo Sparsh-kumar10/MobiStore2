@@ -11,56 +11,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/search.css">
     <title>MobiStore</title>
-    <style>
-        div {
-            display: flex;
-        }
-    </style>
 </head>
 
 <body>
     <header>
         <nav class="first_nav">
             <div class="location">
-                <!-- <h1 class="status"></h1> -->
-
-                <a href="#">
-                    <div><i class="fa-solid   fa-location-dot"></i>Select Location</div>
-                </a>
+                <div>
+                    <i class="fa-solid   fa-location-dot"></i>
+                </div>
                 <button class="find-state status fa solid">location</button>
-                <!--<select class="current_location" name="" id="">
-                    <option value="" style="--clr:#f6d001">New Delhi</option>
-                    <option value="" style="--clr:#edd136">Bangaluru</option>
-                    <option value="" style="--clr:#f5d332">Uttrakhand</option>
-                    <option value="" style="--clr:#edd768">Utar Pradesh</option>
-                    <option value="" style="--clr:#f0d92a">Kolkata</option>
-                    <option value="" style="--clr:#e7ca0d">Chandigarh</option>
-                    <option value="" style="--clr:#f6d000">Bihar</option>
-                </select> -->
             </div>
             <div class="specifications">
                 <ul>
-                    <li class="nav_of_spex_2"><a href="#">How it Works</a></li>
-                    <li class="nav_of_spex_3"><a href="/admin/shopResitration">List your Shop</a></li>
-                    <div class="nav_of_spex_4">
-                        <% if(isAuthenticated) { %>
-                            <form action="/admin/user/logout" method="post">
-                                <button>logged out</button>
-                            </form>
-                            <%} else{ %>
-                                <li>
-                                    <a href="/admin/user/login">
-                                        <button>login</button>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/admin/user/signup">
-                                        <button>signup</button>
-                                    </a>
-                                </li>
+                    <% if(isAuthenticated && shopfind){ %>
+
+                        <%} else if(isAuthenticated) { %>
+                            <li class="nav_of_spex_3"><a href="/admin/shopResitration">Became a Seller</a></li>
+                            <% } else { %>
+                                <li class="nav_of_spex_3"><a href="/admin/shopResitration">Become a Seller</a></li>
                                 <%}%>
-                    </div>
+
+                                    <div class="nav_of_spex_4">
+                                        <% if(isAuthenticated) { %>
+                                            <form action="/admin/user/logout" method="post">
+                                                <button>log out</button>
+                                            </form>
+                                            <%} else{ %>
+                                                <li>
+                                                    <a href="/admin/user/login">
+                                                        <button>log in</button>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/admin/user/signup">
+                                                        <button>Sign up</button>
+                                                    </a>
+                                                </li>
+                                                <%}%>
+                                    </div>
                 </ul>
             </div>
         </nav>
@@ -69,19 +60,25 @@
                 <a href=""><img width="190" src="/img/weblogo.png" alt=""></a>
             </div>
             <div class="search">
-                <form action="" method="" class="searchBar">
+                <form action="" method="" class="searchBar" id="searchForm">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" name="search" id="" placeholder="eg. iphone 14">
+                    <input type="text" name="search" id="searchInput" placeholder="eg. iphone 14">
                     <input type="submit" value="SEARCH">
                 </form>
             </div>
             <% if(shopfind) { %>
                 <div class="dashboard">
-                    <a href="/admin/dashboard/all-product">dashboard</a>
+                    <a href="/admin/dashboard/all-product">Dashboard</a>
                 </div>
                 <%} else if(isAuthenticated) { %>
                     <div class="shop">
-                        <i class="fa-solid fa-user"></i>
+                        <p>
+                            <%= userDetail.name %>
+                        </p>
+                        <div class="tooltip">
+                            <i class="fa-solid fa-user"></i>
+                            <a href="#" class="tooltiptext">Order</a>
+                        </div>
                     </div>
                     <% } else { %>
 
@@ -90,163 +87,92 @@
 
         </nav>
     </header>
-    <!-- landing page -->
-    <div class="land">
-        <div class="write">
-            <ul>
-                <h1 class="heading">TIRED OF WAITING...</h1>
-                <h1 class="heading">GET IT DELIVERED.</h1>
-                <h1 class="heading">TRUST OF LOCAL SHOP</h1>
-                <h1 class="heading">AT COMFORT OF YOUR HOME.</h1>
-            </ul>
+
+    <div class="bodyContainer">
+        <div class="mainContent">
+            
         </div>
     </div>
 
-    <!-- main  
-    <div class="carousel">
-        <div class="carousel_cards">
 
-            <div class="carousel_card">
-                <img class="carousel_img" src="../image/63b3af1e22b317000c1336a8.webp" alt="">
-            </div>
+    <main class="main-container">
 
-            <div class="carousel_card">
-                <img class="carousel_img" src="../image/63e4b1818db992000bb580cd.webp" alt="">
-            </div>
-            <div class="carousel_card">
-                <img class="carousel_img" src="../image/63b3af1e22b317000c1336a8.webp" alt="">
-            </div>
-
-            <div class="carousel_card">
-                <img src="../image/63e4b1818db992000bb580cd.webp" alt="">
-            </div> 
-        </div>
-    </div>-->
-    <!-- main end -->
-
-
-    <!--slideShow  -->
-    <div class="main_container">
-        <div class="slideshow-container">
-            <div class="mySlides fade">
-                <img src="/img/slider Mimage/1.webp" style="width:100%">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="/img/slider Mimage/2.webp" style="width:100%">
-            </div>
-
-            <div class="mySlides fade">
-                <img src="/img/slider Mimage/3.webp" style="width:100%">
-            </div>
-
-            <!-- </div> -->
-            <br>
-
-            <div style="text-align:center">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-
-        </div>
-    </div>
-    <!-- slideShow end -->
-
-
-    <!-- new launch phones -->
-
-    <div class="new_launch">
-        <h2>New Launch</h2>
-        <div class="launch">
-            <div class="new phone1">
-                <a href=""><img src="/img/new launch/mxw_2048,f_auto.avif" alt=""></a>
-            </div>
-            <div class="new phone1">
-                <a href=""><img src="/img/new launch/mxw_2048,f_auto (1).avif" alt=""></a>
-            </div>
-            <div class="new phone1">
-                <a href=""><img src="/img/new launch/mxw_2048,f_auto (2).avif" alt=""></a>
-            </div>
-            <div class="new phone1">
-                <a href=""><img src="/img/new launch/mxw_2048,f_auto (3).avif" alt=""></a>
+        <!-- landing page -->
+        <div class="land">
+            <div class="write">
+                <ul>
+                    <h1 class="heading">TIRED OF WAITING...</h1>
+                    <h1 class="heading">GET IT DELIVERED.</h1>
+                    <h1 class="heading">TRUST OF LOCAL SHOP</h1>
+                    <h1 class="heading">AT COMFORT OF YOUR HOME.</h1>
+                </ul>
             </div>
         </div>
-    </div>
 
-    <!-- new launch phones section end  -->
 
-    <!-- 5g phones  -->
-    <div class="phones">
-        <h2>5G Phones</h2>
-        <div class="five_g_phone">
-            <div class="affphone">
-                <div class="img"><a href=""><img src="/img/Affordable/iqoo_z6_5g.jpg" alt=""></a></div>
-                <div class="info">
-                    <a href="">
-                        <h5 class="name">iQOO Z6 44W by vivo (Lumina Blue, 6GB RAM, 128GB Storage) </h4>
-                            <p><span>₹</span>1,26,990</p>
-                    </a>
+
+        <!--slideShow  -->
+        <div class="main_container">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="/img/slider Mimage/1.webp" style="width:100%">
                 </div>
+
+                <div class="mySlides fade">
+                    <img src="/img/slider Mimage/2.webp" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/img/slider Mimage/3.webp" style="width:100%">
+                </div>
+
+                <!-- </div> -->
+                <br>
+
+                <div style="text-align:center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
             </div>
-            <div class="affphone">
-                <div class="img"><a href=""><img src="/img/Affordable/OnePlus_nord_CE_lite_5g.webp" alt=""></a>
-                </div>
-                <div class="info">
-                    <a href="">
-                        <h5 class="name">OnePlus Nord CE 2 Lite 5G (Black Dusk, 6GB RAM, 128GB Storage)</h4>
-                            <p><span>₹</span>1,26,990</p>
-                    </a>
-                </div>
-            </div>
-            <div class="affphone">
-                <div class="img"><a href=""><img src="/img/Affordable/poco_x4por_5g.webp" alt=""></a></div>
-                <div class="info">
-                    <a href="">
-                        <h5 class="name">POCO X4 Pro 5G (Laser Black, 128 GB) 5000 mAh Heavy Battery</h4>
-                            <p><span>₹</span>1,26,990</p>
-                    </a>
-                </div>
-            </div>
-            <div class="affphone">
-                <div class="img"><a href=""><img src="/img/Affordable/poco_m3_pro_5g.jpg" alt=""></a></div>
-                <div class="info">
-                    <a href="">
-                        <h5 class="name">POCO M3 Pro 5G (Yellow, 64 GB) 5000 mAh Battery</h4>
-                            <p><span>₹</span>1,26,990</p>
-                    </a>
-                </div>
-            </div>
-            <div class="affphone">
-                <div class="img"><a href=""><img src="/img/Affordable/poco_m4pro_5g.webp" alt=""></a></div>
-                <div class="info">
-                    <a href="">
-                        <h5 class="name">POCO M4 Pro 5G (Cool Blue, 64 GB) 5000 mAh Battery</h4>
-                            <p><span>₹</span>1,26,990</p>
-                    </a>
-                </div>
-            </div>
-            <button><span id="arrow"></span><span>View All</span></button>
         </div>
-    </div>
-    <!-- 5g phones section -->
+        <!-- slideShow end -->
 
 
+        <!-- new launch phones -->
 
-
-
+        <div class="new_launch">
+            <h2>New Launch</h2>
+            <div class="launch">
+                <div class="new phone1">
+                    <a href=""><img src="/img/new launch/mxw_2048,f_auto.avif" alt=""></a>
+                </div>
+                <div class="new phone1">
+                    <a href=""><img src="/img/new launch/mxw_2048,f_auto (1).avif" alt=""></a>
+                </div>
+                <div class="new phone1">
+                    <a href=""><img src="/img/new launch/mxw_2048,f_auto (2).avif" alt=""></a>
+                </div>
+                <div class="new phone1">
+                    <a href=""><img src="/img/new launch/mxw_2048,f_auto (3).avif" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </main>
 
 
 
     <!-- footer -->
     <footer>
+
         <div class="contact_container">
             <a href="">
                 <div class="footer_logo">
-                    <img src="/img/weblogo.png" width="190" alt="">
+                    <img src="../img/weblogo-footer.png" width="190" alt="">
                 </div>
             </a>
             <div class="social">
@@ -256,21 +182,14 @@
                 <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
         </div>
-        <div class="contact">
-            <h2>Contact Us</h2>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <textarea name="" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-            <button class="submit">Submit</button>
-        </div>
         <div class="Croma-Support">
-            <h2>Mobistore support</h2>
+            <h2>Support</h2>
             <ul>
-                <li><a href="">Help and Support</a></li>
-                <li><a href="">FAQs</a></li>
-                <li><a href="">Buying Guide</a></li>
-                <li><a href="">Return Policy</a></li>
-                <li><a href="">Privacy Policy</a></li>
+                <li><a href="#" target="_blank">Contact Us</a></li>
+                <li><a href="./FAQs.html" target="_blank">FAQs</a></li>
+                <li><a href="./buyGuide.html" target="_blank">Buying Guide</a></li>
+                <li><a href="./returnPolicy.html" target="_blank">Return Policy</a></li>
+                <li><a href="./PrivacyPolicy.html" target="_blank">Privacy Policy</a></li>
             </ul>
         </div>
         <div class="customer_car">
@@ -282,9 +201,36 @@
 
         </div>
     </footer>
+    <div>
+        <div class="lastfooter">
+            <div class="sitelog">
+                <img src="../img/weblogo-footer.png" width="140" alt="sitelogo" sizes="" srcset="">
+            </div>
+            <div class="footer_links">
+                <ul>
+                    <li><a href="#" target="_blank">Terms & Conditions </a></li>
+                    <li><a href="#" target="_blank">Shipping & Warranty</a></li>
+                    <li><a href="#" target="_blank">Copyright Guidelines</a></li>
+                    <li><a href="#" target="_blank">Contributor Partners</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <div class="copyright_symbol">
+                    <span> &#169;</span>
+                    <span>2023 Copyright</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- displayResults(data); -->
 
 
-    <script src="/js/location.js"></script>
+    <script src="/js/location.js">
+
+
+
+    </script>
+
 </body>
 
 </html>

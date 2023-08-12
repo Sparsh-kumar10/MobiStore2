@@ -1,19 +1,24 @@
 const express=require('express')
 const router=express.Router();
 const homeController=require('../controllers/homeController');
-const userController=require('../controllers/userController')
+const paymetController=require('../controllers/paymentController')
+const is_auth=require('../midleware/is-auth')
 
 const bodyParser = require('body-parser');
 
 
 router.get('/',homeController.homePage);
 
+router.get('/api',homeController.search)
+
 router.post('/',homeController.location)
 
-router.get('/user/cart',userController.cart)
+router.use('/user',require('./user'))
 
-router.get('/productDetail/:productId',homeController.productpage)
+router.post('/createOrder',is_auth,paymetController.createOrder)
 
-router.post('/find-nearest-store',homeController.find_store)
+// router.get('/productDetail/:productId',homeController.productpage)
+
+// router.post('/find-nearest-store',homeController.find_store)
 
 module.exports=router;

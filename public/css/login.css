@@ -55,6 +55,11 @@ body{
   font-size: 16px;
   transition: all 0.3s ease;
 }
+
+.wrapper form input.invalid{
+  border-color: red;
+}
+
 form .row input:focus{
   border-color: #16a085;
   box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
@@ -95,6 +100,7 @@ form .row input::placeholder{
   border: 1px solid #16a085;
   cursor: pointer;
 }
+
 form .button input:hover{
   background: #12876f;
 }
@@ -109,4 +115,21 @@ form .button input:hover{
 }
 form .signup-link a:hover{
   text-decoration: underline;
+}
+
+.message{
+  position: relative;
+  top: 120px;
+  /* border: 1px solid black; */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.message .error{
+  padding: .5rem 2rem;
+  background-color: white;
+  color: red;
+  font-weight: 800;
+  /* border: 1px solid black; */
 }
