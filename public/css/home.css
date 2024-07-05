@@ -472,9 +472,9 @@ header .second_nav .search input[type="submit"] {
   align-items: center;
   gap: 0.5em;
 }
-.new_launch .launch img {
+/* .new_launch .launch img {
   max-width: 100%;
-}
+} */
 /* new launch section end */
 
 /* main section start  */

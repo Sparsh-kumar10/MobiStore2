@@ -6,7 +6,6 @@ exports.adminHome =async (req, res, next) => {
     const userId=req.session.user._id
     let user;
      await shopUser.findById(userId).then(result=>{
-        console.log(result.location[0])
         user=result
     }).catch(err=>{
         console.log(err);
