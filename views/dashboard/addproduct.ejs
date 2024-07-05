@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title><%= title %></title>
+    <style>
+    
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+           
+            .head{
+                background-color: rgb(209, 227, 227);
+                width: 100%;
+                height: 6rem;
+            }
+            .dashnav nav{
+                display: flex;
+                justify-content: space-evenly;
+                list-style: none;
+            }
+            .dashnav nav a{
+                width: 100%;
+                height: 100%;
+                background-color: rgba(209, 227, 227, 0.925);
+                text-align: center;
+                padding: .5rem 0rem;
+                text-decoration: none;
+                color: black;
+                border: 2px solid white;
+                font-size: larger;
+                border-radius: 5px;
+            }
+            .dashnav nav a:hover{
+                box-shadow: 5px 5px 13px rgb(39, 39, 39);
+            }
+            .first_nav{
+                display:flex;
+                justify-content: space-between;
+                height:4rem;
+                background:#fff;
+                align-items: center;
+                border: none;
+                border-bottom:solid #e7e6e6;
+                border-width: 1.4px;
+                position:sticky;
+                padding: 1rem;
+            
+            }
+            .first_nav .website_Logo{
+                padding:12px;
+            }
+            #liveserach{
+                background-color:gainsboro;
+                border-color: black;
+                border-width: thin;
+                border-style: solid;
+                width: 170px;
+            }
+            .hide{
+                display: none;
+            }
+            a:link,
+            a:hover,
+            a:visited,
+            a:active{
+                color: black;
+            }
+    
+     
+
+    </style>
+    <link rel="stylesheet" href="/css/register.css">
+
+    </head>
+
+    <body>
+
+        <%- include('./dashinclude/main.ejs') %>
+            <main>
+
+                <!-- 
+                <form action="">
+                    <label for="mobilebrand">select brand</label>
+                    <select id="mobilebrand">
+                        <option value="" selected="selected">select</option>
+                        <option value="Iphone">Iphone</option>
+                        <option value="Realme">Realme</option>
+                        <option value="Mi">Mi</option>
+                        <option value="Vivo">Vivo</option>
+                        <option value="Oppo">Oppo</option>
+                        <option value="OnePlus">OnePlus</option>
+                    </select>
+
+                    <label for="model">model</label>
+                    <select id="model">
+                        <option value="" selected="selected">select</option>
+                        <option value="Iphone" class="modelvalue">Iphone</option>
+                    </select>
+                </form>  -->
+
+                <form action="/admin/dashboard/<% if(editing) {%>edit-product<%} else {%>add-product<%}  %>  " method="POST">
+                    <div class="items">
+                        <div class="website_logo">
+                            <a href="/"><img width="190" src="/img/weblogo.png" alt=""></a>
+                        </div>
+                        <div class="item item1">
+                            <label for="">Enter mobile name</label>
+                            <input type="text" name="name" placeholder="Enter mobile name" value="<% if(editing) { %> <%=product.name%> <% } %>  ">
+                        </div>
+                        <div class="item item2">
+                            <label for="">Enter price</label>
+                            <input type="number" name="price" placeholder="price" value="<% if(editing) { %> <%=product.price%> <% } %>  ">
+                        </div>
+                        <div class="item item3">
+                            <label for="">Image Url</label>
+                            <input type="text" name="imageurl" id="" placeholder="Image Url" value="<% if(editing) { %> <%=product.imageurl%> <% } %>  ">
+                        </div>
+                        <div class="item item4">
+                            <label for="">Description</label>
+                            <input type="text" name="description" placeholder="Description"value="<% if(editing) { %> <%=product.description%> <% } %>  ">
+                        </div>
+                        <div class="button">
+                            <input type="submit" value="<% if(editing) { %> update product <% } else { %>  Add product <%}%>" class="btn">
+                        </div>
+                        <% if(editing) { %>
+                            <input type="hidden" value="<%= product.id %> " name="productId">
+                            <% } %>
+
+                    </div>
+                </form>
+
+                <!-- <input type="text" onkeyup="search(this)">
+                <section class="result"> -->
+
+                </section>
+
+
+            </main>
+            <!-- https://www.youtube.com/@codetoredemption8821/featured -->
+            <%- include('./dashinclude/footer.ejs') %>
+            
+            <script>
+                <!--
+                function search(e){
+                    console.log(e.value);
+                    fetch('http://localhost:2000/admin/dashboard/search',{
+                        method:'POST',
+                        headers:{
+                            'Content-type':'applicatoin/json'
+                        },
+                        body:JSON.stringify({
+                            search:e.value
+                        })
+                    })
+                    .then(res=> res.json())
+                    .then(resdata=> console.log(resdata))
+                    .catch(err=>console.log(err))
+                } -->
+
+
+            </script>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/search.css">
+    <title>MobiStore</title>
+    <style>
+        .product {
+            border: 1px solid black;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            height: 500px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .img {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .des {
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .des span {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: normal;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="first_nav">
+            <div class="location">
+                <div>
+                    <i class="fa-solid   fa-location-dot"></i>
+                </div>
+                <button class="find-state status fa solid">location</button>
+            </div>
+            <div class="specifications">
+                <ul>
+                    <% if(isAuthenticated && shopfind){ %>
+
+                        <%} else if(isAuthenticated) { %>
+                            <li class="nav_of_spex_3"><a href="/admin/shopResitration">Became a Seller</a></li>
+                            <% } else { %>
+                                <li class="nav_of_spex_3"><a href="/admin/shopResitration">Become a Seller</a></li>
+                                <%}%>
+
+                                    <div class="nav_of_spex_4">
+                                        <% if(isAuthenticated) { %>
+                                            <form action="/admin/user/logout" method="post">
+                                                <button>log out</button>
+                                            </form>
+                                            <%} else{ %>
+                                                <li>
+                                                    <a href="/admin/user/login">
+                                                        <button>log in</button>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="/admin/user/signup">
+                                                        <button>Sign up</button>
+                                                    </a>
+                                                </li>
+                                                <%}%>
+                                    </div>
+                </ul>
+            </div>
+        </nav>
+        <nav class="second_nav">
+            <div class="website_Logo">
+                <a href=""><img width="190" src="/img/weblogo.png" alt=""></a>
+            </div>
+            <div class="search">
+                <form action="" method="" class="searchBar" id="searchForm">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" name="search" id="searchInput" placeholder="eg. iphone 14">
+                    <input type="submit" value="SEARCH">
+                </form>
+            </div>
+            <% if(shopfind) { %>
+                <div class="dashboard">
+                    <a href="/admin/dashboard/all-product">Dashboard</a>
+                </div>
+                <%} else if(isAuthenticated) { %>
+                    <div class="shop">
+                        <p>
+                            <%= userDetail.name %>
+                        </p>
+                        <div class="tooltip">
+                            <i class="fa-solid fa-user"></i>
+                            <a href="#" class="tooltiptext">Order</a>
+                        </div>
+                    </div>
+                    <% } else { %>
+
+
+                        <%}%>
+
+        </nav>
+    </header>
+
+    <div class="bodyContainer">
+        <div class="mainContent">
+            
+        </div>
+    </div>
+
+
+    <main class="main-container">
+
+        <!-- landing page -->
+        <div class="land">
+            <div class="write">
+                <ul>
+                    <h1 class="heading">TIRED OF WAITING...</h1>
+                    <h1 class="heading">GET IT DELIVERED.</h1>
+                    <h1 class="heading">TRUST OF LOCAL SHOP</h1>
+                    <h1 class="heading">AT COMFORT OF YOUR HOME.</h1>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!--slideShow  -->
+        <div class="main_container">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="/img/slider Mimage/1.webp" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/img/slider Mimage/2.webp" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/img/slider Mimage/3.webp" style="width:100%">
+                </div>
+
+                <!-- </div> -->
+                <br>
+
+                <div style="text-align:center">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+            </div>
+        </div>
+        <!-- slideShow end -->
+
+
+        <!-- new launch phones -->
+
+        <div class="new_launch">
+            <h2>New Launch</h2>
+            <div class="launch">
+                <div class="new phone1">
+                    <a href="">
+                        <div class="product">
+                            <div class="img">
+                                <img src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/q/c/y/-original-imah27s96vp5z7nh.jpeg?q=70" alt="REDMI Note 13 Pro 5G">
+                            </div>
+                            <div class="des">
+                                REDMI Note 13 Pro 5G (Scarlet Red, 128 GB)  (8 GB RAM)
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="new phone1">
+                    <a href="">
+                        <div class="product">
+                            <div class="img">
+                                <img src="https://rukminim2.flixcart.com/image/312/312/xif0q/mobile/5/t/j/edge-50-fusion-pb300002in-motorola-original-imahywzrfagkuyxx.jpeg?q=70" alt="REDMI Note 13 Pro 5G">
+                            </div>
+                            <div class="des">
+                                Motorola Edge 50 Fusion (Marshmallow Blue, 256 GB)  (12 GB RAM)
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="new phone1">
+                    <a href="">
+                        <div class="product">
+                            <div class="img">
+                                <img src="https://rukminim2.flixcart.com/image/832/832/xif0q/mobile/r/c/k/-original-imahfyjbevrkrvzu.jpeg?q=70&crop=false">
+                            </div>
+                            <div class="des">
+                                Motorola Edge 50 Ultra 5G (Forest Grey, 512 GB)  (12 GB RAM)
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="new phone1">
+                    <a href="">
+                        <div class="product">
+                            <div class="img">
+                                <img src="https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/l/i/a/-original-imah2y7hazjdbrzh.jpeg?q=70&crop=false">
+                            </div>
+                            <div class="des">
+                                realme GT 6 (Fluid Silver, 256 GB)  (8 GB RAM)
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- footer -->
+    <footer>
+
+        <div class="contact_container">
+            <a href="">
+                <div class="footer_logo">
+                    <img src="../img/weblogo-footer.png" width="190" alt="">
+                </div>
+            </a>
+            <div class="social">
+                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="Croma-Support">
+            <h2>Support</h2>
+            <ul>
+                <li><a href="#" target="_blank">Contact Us</a></li>
+                <li><a href="./FAQs.html" target="_blank">FAQs</a></li>
+                <li><a href="./buyGuide.html" target="_blank">Buying Guide</a></li>
+                <li><a href="./returnPolicy.html" target="_blank">Return Policy</a></li>
+                <li><a href="./PrivacyPolicy.html" target="_blank">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="customer_car">
+            <h2>Customer Care</h2>
+            <div>
+                <span>Phone: 8792097283</span>
+                <span>, 9887934024</span>
+            </div>
+
+        </div>
+    </footer>
+    <div>
+        <div class="lastfooter">
+            <div class="sitelog">
+                <img src="../img/weblogo-footer.png" width="140" alt="sitelogo" sizes="" srcset="">
+            </div>
+            <div class="footer_links">
+                <ul>
+                    <li><a href="#" target="_blank">Terms & Conditions </a></li>
+                    <li><a href="#" target="_blank">Shipping & Warranty</a></li>
+                    <li><a href="#" target="_blank">Copyright Guidelines</a></li>
+                    <li><a href="#" target="_blank">Contributor Partners</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <div class="copyright_symbol">
+                    <span> &#169;</span>
+                    <span>2023 Copyright</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- displayResults(data); -->
+
+
+    <script src="/js/location.js">
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+
+/* search phone  */
+.mainContent{
+    /* position:relative;
+    top:5rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+/* .Content{
+    height: fit-content;
+    width: 70vw;
+    margin-bottom: 12px;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    margin: 3rem 0rem;
+} */
+.image{
+    display: flex;
+    justify-content: center;
+    width: 25%;
+}
+
+.Content:last-child{
+
+    border-bottom:none
+
+}
+.mainContent .aboutProduct{
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: row;
+    flex-basis: 1;
+    flex-shrink: 1;
+    align-items: center;
+    flex-direction: column;
+    height: 70%;
+    /* border: 1px solid black; */
+    margin: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid gray;
+
+    
+
+}
+.aboutProduct .first{
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+
+}
+ul{
+    list-style:circle;
+    /* list-style-image:linear-gradient(red pink,); */
+}
+.productInfo li:first-child{
+    margin-bottom:12px;
+    list-style: none;
+    margin-left: -12px;
+}
+.mainContent .aboutProduct .price{
+    display: flex;
+} 
+
+.orderOptions1 .orderBtn1{
+    position: relative;
+    left: 16rem;
+    
+    
+}
+.orderOptions1 .orderBtn1 .buttons1{
+    padding: 5px 20px;
+    border: 1.6px solid rgb(20, 5, 232);
+    border-radius: 5px;
+    outline: none;
+    background-color: #c2c1c198;
+    
+}
+.orderOptions1 button:hover{
+    box-shadow: 2px 3px 5px rgb(0, 0, 0) ;
+}
+
