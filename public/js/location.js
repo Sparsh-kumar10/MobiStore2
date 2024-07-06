@@ -3,7 +3,7 @@ async function searchMobiles(query) {
   const endpoint = '';
 
   // Perform the Fetch API request
-  fetch(`http://localhost:3000/api/?search=${query}`)
+  fetch(`/api/?search=${query}`)
     .then(response => response.json())
     .then(data => {
       // Process the response data
