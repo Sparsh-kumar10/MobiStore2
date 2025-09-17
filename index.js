@@ -13,7 +13,7 @@ const MongoDBStore = require('connect-mongodb-session')(session)
 
 const ShopUser = require('./models/shopUser')
 
-const MONGODB_URI = 'mongodb+srv://Sparsh:spa123rsh@cluster0.lw6t6qn.mongodb.net/newdatabase?retryWrites=true&w=majority';
+const MONGODB_URI = 'mongodb+srv://Sparsh:Spa{1020}rsh@cluster0.lw6t6qn.mongodb.net/newdatabase?retryWrites=true&w=majority';
 const store = new MongoDBStore({
     uri: MONGODB_URI,
     collection: 'sessions'
